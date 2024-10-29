@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6e6fa; /* Light lavender background */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            color: #4b0082; /* Dark lavender */
+        }
+        input[type="text"], input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4b0082; /* Dark lavender */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #6a0dad; /* Lighter lavender on hover */
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <input type="text" id="uniqueID" placeholder="Unique ID" required>
+    <input type="date" id="dob" placeholder="Date of Birth" required>
+    <button id="loginButton">Login</button>
+</div>
+
+<script>
+    // Handle login button click
+    document.getElementById('loginButton').addEventListener('click', function() {
+        const uniqueID = document.getElementById('uniqueID').value;
+        const dob = document.getElementById('dob').value;
+
+        if (uniqueID && dob) {
+            // Redirect to patient details page with query parameters
+            window.location.href = patient_details.html?uniqueID=${encodeURIComponent(uniqueID)}&dob=${encodeURIComponent(dob)};
+        } else {
+            alert("Please enter all required fields.");
+        }
+    });
+</script>
+
+</body>
+</html>

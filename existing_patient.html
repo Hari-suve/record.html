@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Existing Patient Login</title>
+    <style>
+        /* Lavender color palette */
+        body {
+            background: linear-gradient(to right, #E6E6FA, #D8BFD8);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #4B0082;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Header style */
+        h1 {
+            color: #4B0082;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Form container */
+        .form-container {
+            background-color: #FFF;
+            border-radius: 15px;
+            padding: 30px;
+            width: 320px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .form-container:hover {
+            transform: scale(1.02);
+        }
+
+        /* Form fields */
+        .form-field {
+            margin: 15px 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #4B0082;
+        }
+
+        input[type="text"], input[type="date"] {
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid #CCC;
+            font-size: 1em;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus {
+            border-color: #6A5ACD;
+            box-shadow: 0 0 8px rgba(106, 90, 205, 0.5);
+            outline: none;
+        }
+
+        /* Login button */
+        .login-button {
+            background-color: #9370DB;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .login-button:hover {
+            background-color: #8A2BE2;
+            transform: scale(1.05);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 400px) {
+            .form-container {
+                width: 90%;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <h1>EXISTING PATIENT LOGIN</h1>
+
+    <!-- Form Container -->
+    <div class="form-container">
+        <div class="form-field">
+            <label for="idNumber">Unique ID:</label>
+            <input type="text" id="idNumber" maxlength="10" required>
+        </div>
+
+        <div class="form-field">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" required>
+        </div>
+
+        <button class="login-button" onclick="login()">LOGIN</button>
+    </div>
+
+    <script>
+        function login() {
+            const idNumber = document.getElementById('idNumber').value;
+            const dob = document.getElementById('dob').value;
+
+            if (idNumber && dob) {
+                // Redirect to database page (for now, using a placeholder URL)
+                window.location.href = 'patient_database.html';
+            } else {
+                alert("Please enter your Unique ID and Date of Birth.");
+            }
+        }
+    </script>
+
+</body>
+</html>

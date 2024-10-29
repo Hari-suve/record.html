@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PATIENT MEDICAL HISTORY</title>
+    <style>
+        /* Lavender color palette */
+        body {
+            background: linear-gradient(to right, #E6E6FA, #D8BFD8);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #4B0082;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            animation: fadeIn 1s ease;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Header style */
+        h1 {
+            color: #4B0082;
+            font-size: 2.5em;
+            margin-top: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Form container */
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 30px;
+            width: 300px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            animation: slideIn 1s ease;
+        }
+
+        /* Slide-in animation */
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Form fields */
+        .form-field {
+            margin: 15px 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #4B0082;
+        }
+
+        input[type="text"], input[type="date"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #CCC;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="date"]:focus {
+            border-color: #6A5ACD;
+            outline: none;
+        }
+
+        /* Login button */
+        .login-button {
+            background-color: #9370DB;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .login-button:hover {
+            background-color: #8A2BE2;
+            transform: scale(1.05);
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .form-container {
+                width: 90%;
+                padding: 20px;
+            }
+
+            input[type="text"], input[type="date"] {
+                padding: 8px;
+            }
+
+            .login-button {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <h1>PATIENT MEDICAL HISTORY</h1>
+
+    <!-- Form Container -->
+    <div class="form-container">
+        <div class="form-field">
+            <label for="idNumber">Unique ID:</label>
+            <input type="text" id="idNumber" maxlength="10" required>
+        </div>
+
+        <div class="form-field">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" required>
+        </div>
+
+        <button class="login-button" onclick="login()">LOGIN</button>
+    </div>
+
+    <script>
+        function login() {
+            const idNumber = document.getElementById('idNumber').value;
+            const dob = document.getElementById('dob').value;
+
+            if (idNumber && dob) {
+                // Redirect to database page (for now, using a placeholder URL)
+                window.location.href = 'patient_details.html';
+            } else {
+                alert("Please enter your Unique ID and Date of Birth.");
+            }
+        }
+    </script>
+
+</body>
+</html>

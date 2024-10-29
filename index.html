@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Gradient background with lavender theme */
+        body {
+            background: linear-gradient(to right, #e6e6fa, #d8bfd8);
+            font-family: 'Montserrat', sans-serif;
+            color: #4B0082;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 1s ease;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Welcome message style */
+        .welcome-message {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1s ease forwards;
+        }
+
+        /* Slide-in animation for welcome message */
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Title style */
+        h1 {
+            font-size: 2.5em;
+            margin: 20px 0;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, #6A5ACD, #7B68EE);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            color: transparent;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        /* Pulsing animation for title */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+
+        /* Subtitle style */
+        .subtitle {
+            font-size: 1.2em;
+            margin-bottom: 50px;
+            font-weight: 300;
+            color: rgba(75, 0, 130, 0.9);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Button styles */
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            background: rgba(255, 255, 255, 0.3);
+            color: #4B0082;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background 0.4s ease, transform 0.2s, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 300%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            transform: translateX(-50%) scale(0);
+            transition: transform 0.5s;
+            z-index: 0;
+        }
+
+        .button:hover:before {
+            transform: translateX(-50%) scale(1);
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Keep text color the same on hover */
+        .button:hover {
+            color: #4B0082; /* Keep text color consistent */
+        }
+
+        .icon {
+            margin-right: 10px;
+        }
+
+        /* Footer styles */
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            background: rgba(75, 0, 130, 0.8);
+            color: white;
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 600px) {
+            .welcome-message { font-size: 2em; }
+            h1 { font-size: 2em; }
+            .subtitle { font-size: 1em; }
+            .button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Welcome Message -->
+    <div class="welcome-message">
+        WELCOME TO OUR INTEGRATED DIGITAL HEALTH RECORDS SYSTEM
+    </div>
+
+    <!-- Title -->
+    <h1>PATIENT MANAGEMENT</h1>
+
+    <!-- Subtitle -->
+    <div class="subtitle">Your one-stop solution for managing patient information efficiently</div>
+
+    <!-- Buttons -->
+    <div class="button-container">
+        <button class="button" onclick="navigateTo('newPatient')">
+            <i class="fas fa-user-plus icon"></i>
+            New Patient
+        </button>
+        <button class="button" onclick="navigateTo('existingPatient')">
+            <i class="fas fa-user icon"></i>
+            Existing Patient
+        </button>
+        <button class="button" onclick="navigateTo('patientDetails')">
+            <i class="fas fa-file-medical icon"></i>
+            Patient Details
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Contact Us: info@healthrecords.com | Phone: +123 456 7890</p>
+    </footer>
+
+    <script>
+        // Navigation function to other pages
+        function navigateTo(page) {
+            if (page === 'newPatient') {
+                window.location.href = 'new_patient.html'; // Ensure this file exists
+            } else if (page === 'existingPatient') {
+                window.location.href = 'existing_patient.html'; // Ensure this file exists
+            } else if (page === 'patientDetails') {
+                window.location.href = 'patient_details.html'; // Ensure this file exists
+            }
+        }
+    </script>
+    
+</body>
+</html>
